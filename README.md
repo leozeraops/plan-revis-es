@@ -19,7 +19,6 @@ Para consultar as issues e tickets, autentique o GitHub CLI com `gh auth login` 
 ## Decisões e trabalho registrado
 
 - O rastreador de trabalho é GitHub Issues; os rótulos padrão de triagem estão configurados no repositório.
-- A análise inicial de arquitetura está em [`architecture-review-report.html`](./architecture-review-report.html).
 - A spec de melhorias está na [issue #1](https://github.com/leozeraops/plan-revis-es/issues/1).
 - Os tickets filhos da spec cobrem testes locais, importações Salesforce e fluxos Lovable; veja a lista de sub-issues da issue #1.
 
