@@ -32,4 +32,15 @@ Para consultar as issues e tickets, autentique o GitHub CLI com `gh auth login` 
 
 ## Testes
 
-Um mecanismo de testes locais para o Apps Script V8 está planejado no ticket de testes da issue #1. Até que seja implementado, não há comando de teste automatizado documentado para a aplicação.
+Os testes locais focados nas integrações podem ser executados com `node --test tests/*.test.js`. Eles simulam os serviços do Apps Script e não precisam de credenciais reais nem fazem chamadas externas.
+
+## Credenciais das integrações
+
+As credenciais e chaves usadas pelas integrações Salesforce e Lovable devem ser configuradas como **Script Properties** no projeto Apps Script. Não as inclua no código nem em arquivos versionados.
+
+Propriedades necessárias:
+
+- Salesforce: `SALESFORCE_CLIENT_ID`, `SALESFORCE_CLIENT_SECRET`, `SALESFORCE_USERNAME`, `SALESFORCE_PASSWORD` e `SALESFORCE_SECURITY_TOKEN`. O código mantém o contrato atual e concatena a senha com o security token no payload OAuth.
+- Lovable: `LOVABLE_EMAIL`, `LOVABLE_PASSWORD` e `LOVABLE_API_KEY_ANON`.
+
+No editor do Apps Script, abra **Project Settings** (ícone de engrenagem), localize **Script Properties**, adicione cada nome acima e informe seu valor no campo correspondente. Salve as propriedades antes de executar as integrações. Se alguma propriedade estiver ausente ou vazia, a integração falha antes da chamada remota e informa qual nome precisa ser configurado.
